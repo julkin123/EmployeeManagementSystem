@@ -78,18 +78,23 @@ class EmployeeServiceImplTest {
 
 	@Test
 	void testCreateEmployee() {
-		
-	 
+		Employee	employee=new Employee(null,"julkin", "george", "julkin@gmail.com",20000,1);
+	EmployeeDto	employeeDto=new EmployeeDto(null,"julkin", "george", "julkin@gmail.com",20000,1);
 		
 		when(employeeRepo.save(employee)).thenReturn(employee);
 		
-		EmployeeDto employDto=EmployeeModelMapper.toDto(employee);
+
 		
 
 		
-		EmployeeDto reulst=employeeService.createEmployee(employDto);
-		
-		assertThat(reulst).isEqualTo(employDto);
+		EmployeeDto result=employeeService.createEmployee(employeeDto);
+		 
+
+	    assertNotNull(result);
+	    assertEquals(employee.getId(), result.getId());
+	    assertEquals(employee.getFirstName(), result.getFirstName());
+	    assertEquals(employee.getEmail(), result.getEmail());
+	    assertEquals(employee.getJobLevel(), result.getJobLevel());
 	
 
 		

@@ -4,25 +4,7 @@ import java.util.Objects;
 
 public class EmployeeDto {
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(email, firstName, id, jobLevel, lastName, salary);
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EmployeeDto other = (EmployeeDto) obj;
-		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
-				&& Objects.equals(id, other.id) && jobLevel == other.jobLevel
-				&& Objects.equals(lastName, other.lastName)
-				&& Double.doubleToLongBits(salary) == Double.doubleToLongBits(other.salary);
-	}
 
 	private Long id;
 
@@ -98,6 +80,24 @@ public class EmployeeDto {
 		this.jobLevel = jobLevel;
 	}
 	
-	
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, firstName, id, jobLevel, lastName, salary);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmployeeDto other = (EmployeeDto) obj;
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(id, other.id) && jobLevel == other.jobLevel
+				&& Objects.equals(lastName, other.lastName)
+				&& Double.doubleToLongBits(salary) == Double.doubleToLongBits(other.salary);
+	}
 
 }

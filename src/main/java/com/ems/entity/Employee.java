@@ -1,5 +1,7 @@
 package com.ems.entity;
 
+import java.util.Objects;
+
 import org.springframework.boot.autoconfigure.web.WebProperties.Resources.Chain.Strategy;
 
 import jakarta.persistence.Column;
@@ -73,6 +75,24 @@ public class Employee {
 		this.email = email;
 		this.salary = salary;
 		this.jobLevel = jobLevel;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(email, firstName, id, jobLevel, lastName, salary);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Employee other = (Employee) obj;
+		return Objects.equals(email, other.email) && Objects.equals(firstName, other.firstName)
+				&& Objects.equals(id, other.id) && jobLevel == other.jobLevel
+				&& Objects.equals(lastName, other.lastName)
+				&& Double.doubleToLongBits(salary) == Double.doubleToLongBits(other.salary);
 	}
 	
 	
