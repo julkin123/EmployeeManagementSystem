@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ems.Dto.EmployeeDto;
 import com.ems.service.EmployeeService;
-@CrossOrigin("*")
+@CrossOrigin("http://agile-cooperation-production.up.railway.app")
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController { 

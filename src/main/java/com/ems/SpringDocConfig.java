@@ -11,9 +11,7 @@ public class SpringDocConfig implements WebMvcConfigurer
 	 @Override
 	    public void addCorsMappings(CorsRegistry registry) {  
 	        registry.addMapping("/**")
-	                .allowedOrigins("http://agile-cooperation-production.up.railway.app","http://agile-cooperation-production.up.railway.app/"
-	                		,"https://agile-cooperation-production.up.railway.app",
-	                		"https://agile-cooperation-production.up.railway.app/","http://localhost:8080")  
+	                .allowedOrigins("http://agile-cooperation-production.up.railway.app")  
 	                .allowedMethods("GET", "POST", "PUT", "DELETE")
 	                .allowedHeaders("*"); 
 	    }
