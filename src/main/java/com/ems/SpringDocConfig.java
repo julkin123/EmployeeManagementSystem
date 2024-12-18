@@ -8,14 +8,12 @@ public class SpringDocConfig implements WebMvcConfigurer
 {
 
 
-	public void addCorsMapping(CorsRegistry registry) {
-		
-		registry.addMapping("/**")
-		        .allowedOrigins("*")
-		        .allowedMethods("GET","POST","PUT","DELETE")
-		        .allowedHeaders("*")
-		        .allowCredentials(true);
-		
-	}
-	
+	 @Override
+	    public void addCorsMappings(CorsRegistry registry) {  
+	        registry.addMapping("/**")
+	                .allowedOrigins("*")  
+	                .allowedMethods("GET", "POST", "PUT", "DELETE")
+	                .allowedHeaders("*")
+	                .allowCredentials(true);  
+	    }
 }
