@@ -17,14 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ems.Dto.EmployeeDto;
 import com.ems.service.EmployeeService;
-@CrossOrigin("http://agile-cooperation-production.up.railway.app")
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/employee")
 public class EmployeeController { 
 
 	@Autowired
 	EmployeeService employeeService;
-	@PostMapping("/create/")
+	@PostMapping("/create")
  ResponseEntity<EmployeeDto>createEmployee(@RequestBody EmployeeDto employee) {
 		
 		return new ResponseEntity<EmployeeDto>( employeeService.createEmployee(employee),HttpStatus.CREATED);
