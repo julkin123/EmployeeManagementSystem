@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ems.Dto.EmployeeDto;
+import com.ems.Exception.EmployeeAlreadyExistException;
 import com.ems.Exception.ResourceNotFoundException;
 import com.ems.entity.Employee;
 import com.ems.modelmapper.EmployeeModelMapper;
@@ -40,6 +41,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+		
+	Employee isEmployeeExisit=	employeeRepo.findByEmail(employeeDto.getEmail());
+	if(isEmployeeExisit!=null) {
+		throw new EmployeeAlreadyExistException("Employee Already Exist with given Email");
+	}
+	else {
+		
+	
 
 		Employee employee = new Employee();
 		employee.setFirstName(employeeDto.getFirstName());
@@ -51,6 +60,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		this.employeeRepo.save(employee);
 
 		return EmployeeModelMapper.toDto(employee);
+	}
 	}
 
 	@Override
