@@ -4,8 +4,6 @@ import java.util.Objects;
 
 public class EmployeeDto {
 
-
-
 	private Long id;
 
 	private String firstName;
@@ -16,7 +14,6 @@ public class EmployeeDto {
 	private double salary;
 
 	private int jobLevel;
-	
 
 	public EmployeeDto() {
 		super();
@@ -79,7 +76,7 @@ public class EmployeeDto {
 	public void setJobLevel(int jobLevel) {
 		this.jobLevel = jobLevel;
 	}
-	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(email, firstName, id, jobLevel, lastName, salary);
